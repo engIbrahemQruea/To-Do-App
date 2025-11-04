@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:to_do_app/core/routing/app_route_name.dart';
+import 'package:to_do_app/features/onboarding/ui/onboarding_screen.dart';
 import 'package:to_do_app/features/splash/splash_screen.dart';
 
 abstract class AppRouter {
@@ -10,6 +11,11 @@ abstract class AppRouter {
         path: ClsAppRouteName.splashScreen,
         name: ClsAppRouteName.splashScreen,
         builder: (context, state) => SplashScreen(),
+      ),
+      GoRoute(
+        path: ClsAppRouteName.onBoardingScreen,
+        name: ClsAppRouteName.onBoardingScreen,
+        builder: (context, state) => OnboardingScreen(),
       ),
     ],
 
