@@ -33,14 +33,15 @@ class ClsAppStyles {
     fontWeight: FontWeightHelper.regular,
     color: ClsAppColors.white,
   );
-  static TextStyle font14Regular = TextStyle(
-    fontSize: 14,
-    fontWeight: FontWeightHelper.regular,
+  static TextStyle font24Bold = TextStyle(
+    fontSize: 24.sp,
+    fontWeight: FontWeightHelper.bold,
+    color: ClsAppColors.white,
   );
 
-  static TextStyle font18BlackBold = TextStyle(
-    fontSize: 18,
-    fontWeight: FontWeightHelper.bold,
-    color: Colors.black,
+  static TextStyle font20Regular = TextStyle(fontSize: 20.sp,
+  fontWeight: FontWeightHelper.regular,
+  color: ClsAppColors.white,
+  
   );
 }

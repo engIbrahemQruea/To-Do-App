@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:to_do_app/core/routing/app_router.dart';
+import 'package:to_do_app/core/theming/theme.dart';
+import 'package:to_do_app/core/utils/app_colors.dart';
 
 class TodoApp extends StatelessWidget {
   const TodoApp({super.key});
@@ -13,8 +16,10 @@ class TodoApp extends StatelessWidget {
         routerConfig: AppRouter.router,
         title: 'To-Do App',
         debugShowCheckedModeBanner: false,
-        //themeMode: ThemeService().theme,
+        theme: getTheme(),
       ),
     );
   }
+
+
 }
