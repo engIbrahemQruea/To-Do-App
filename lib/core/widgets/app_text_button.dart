@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:to_do_app/core/utils/app_colors.dart';
 
 
 class AppTextButton extends StatelessWidget {
@@ -35,7 +36,7 @@ class AppTextButton extends StatelessWidget {
           ),
         ),
         backgroundColor: MaterialStatePropertyAll(
-          backgroundColor ?? Colors.lightBlue,
+          backgroundColor ??ClsAppColors.buttonColor,
         ),
         padding: MaterialStateProperty.all<EdgeInsets>(
           EdgeInsets.symmetric(

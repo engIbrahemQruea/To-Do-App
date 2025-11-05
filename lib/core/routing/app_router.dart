@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:to_do_app/core/routing/app_route_name.dart';
+import 'package:to_do_app/features/home/ui/home_screen.dart';
 import 'package:to_do_app/features/onboarding/ui/onboarding_screen.dart';
 import 'package:to_do_app/features/splash/splash_screen.dart';
 
@@ -16,6 +17,11 @@ abstract class AppRouter {
         path: ClsAppRouteName.onBoardingScreen,
         name: ClsAppRouteName.onBoardingScreen,
         builder: (context, state) => OnboardingScreen(),
+      ),
+      GoRoute(
+        path: ClsAppRouteName.homeScreen,
+        name: ClsAppRouteName.homeScreen,
+        builder: (context, state) => HomeScreen(),
       ),
     ],
 
