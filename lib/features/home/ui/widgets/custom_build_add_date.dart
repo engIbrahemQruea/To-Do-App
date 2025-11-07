@@ -9,7 +9,8 @@ class CustomBuildAddDate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
+      height: 120.h,
       child: DatePicker(
         initialSelectedDate: DateTime.now(),
         selectionColor: ClsAppColors.buttonColor,
@@ -17,7 +18,7 @@ class CustomBuildAddDate extends StatelessWidget {
         monthTextStyle: ClsAppStyles.font16Regular,
         dayTextStyle: ClsAppStyles.font16Regular,
         dateTextStyle: ClsAppStyles.font16Regular,
-        width: 55.w,
+        width: 60.w,
         height: 94.h,
         selectedTextColor: ClsAppColors.white,
         onDateChange: (selectedDate) {},
