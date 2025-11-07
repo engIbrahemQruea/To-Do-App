@@ -5,5 +5,10 @@ ThemeData getTheme() {
   return ThemeData(
     primaryColor: ClsAppColors.buttonColor,
     scaffoldBackgroundColor: ClsAppColors.primaryColor,
+    appBarTheme: AppBarTheme(
+      backgroundColor: ClsAppColors.primaryColor,
+      elevation: 0,
+      centerTitle: true,
+    ),
   );
 }
