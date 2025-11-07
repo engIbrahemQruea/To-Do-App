@@ -1,7 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:to_do_app/core/theming/app_style.dart';
+import 'package:to_do_app/core/utils/app_colors.dart';
 
 class AppTextFormField extends StatelessWidget {
   final EdgeInsetsGeometry? contentPadding;
@@ -41,35 +42,49 @@ class AppTextFormField extends StatelessWidget {
         isDense: true,
         contentPadding:
             contentPadding ??
-            EdgeInsets.symmetric(horizontal: 20.w, vertical: 18.h),
+            EdgeInsets.symmetric(horizontal: 10.w, vertical: 15.h),
         focusedBorder:
             focusedBorder ??
             OutlineInputBorder(
-             // borderSide: const BorderSide(color: primaryClr, width: 1.3),
-              borderRadius: BorderRadius.circular(16.0),
+              borderSide: const BorderSide(
+                color: ClsAppColors.buttonColor,
+                width: 1.3,
+              ),
+              borderRadius: BorderRadius.circular(4.r),
             ),
         enabledBorder:
             enabledBorder ??
             OutlineInputBorder(
-              borderSide: const BorderSide(color: Colors.grey, width: 1.3),
-              borderRadius: BorderRadius.circular(16.0),
+              borderSide: const BorderSide(
+                color: ClsAppColors.buttonColor,
+                width: 1.5,
+              ),
+              borderRadius: BorderRadius.circular(4.r),
             ),
         errorBorder: OutlineInputBorder(
           borderSide: const BorderSide(color: Colors.red, width: 1.3),
-          borderRadius: BorderRadius.circular(16.0),
+          borderRadius: BorderRadius.circular(4.r),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderSide: const BorderSide(color: Colors.red, width: 1.3),
-          borderRadius: BorderRadius.circular(16.0),
+          borderRadius: BorderRadius.circular(4.r),
         ),
-      //  hintStyle: hintStyle ?? AppStyles.font14Regular,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(4.r),
+          borderSide: const BorderSide(
+            color: ClsAppColors.buttonColor,
+            width: 1.0,
+          ),
+        ),
+        hintStyle: hintStyle ?? ClsAppStyles.font16Regular,
         hintText: hintText,
         suffixIcon: suffixIcon,
-        fillColor: backgroundColor ?? Colors.grey,
+        fillColor:
+            backgroundColor ?? ClsAppColors.primaryColor.withOpacity(.87),
         filled: true,
       ),
       obscureText: isObscureText ?? false,
-      ///style: AppStyles.font16SemiBold,
+      style: ClsAppStyles.font16Regular,
       validator: (value) {
         return validator(value);
       },

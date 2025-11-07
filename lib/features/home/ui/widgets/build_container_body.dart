@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:to_do_app/core/helpers/spacing.dart';
@@ -40,7 +39,7 @@ class BuildContainerBody extends StatelessWidget {
         VerticalDivider(
           indent: 45.w,
           endIndent: 45.w,
-          thickness: 2,
+          thickness: 2.r,
           color: ClsAppColors.white,
         ),
         RotatedBox(

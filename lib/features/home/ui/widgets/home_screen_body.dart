@@ -16,22 +16,24 @@ class HomeScreenBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 24.w),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
 
-        children: [
-          Text(
-            '${DateFormat.yMMMMd().format(DateTime.now())}',
-            style: ClsAppStyles.font24Bold,
-          ),
-          verticalSpace(12),
-          Text('Today', style: ClsAppStyles.font24Bold),
-          verticalSpace(6),
-          CustomBuildAddDate(),
-          verticalSpace(20),
-          //NoTasks(),
-          CustomBuildTask(),
-        ],
+          children: [
+            Text(
+              '${DateFormat.yMMMMd().format(DateTime.now())}',
+              style: ClsAppStyles.font24Bold,
+            ),
+            verticalSpace(12),
+            Text('Today', style: ClsAppStyles.font24Bold),
+            verticalSpace(6),
+            CustomBuildAddDate(),
+            verticalSpace(20),
+            //NoTasks(),
+            CustomBuildTask(),
+          ],
+        ),
       ),
     );
   }

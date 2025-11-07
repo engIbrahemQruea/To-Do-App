@@ -12,14 +12,15 @@ class TodoApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       minTextAdapt: true,
-      child: MaterialApp.router(
-        routerConfig: AppRouter.router,
-        title: 'To-Do App',
-        debugShowCheckedModeBanner: false,
-        theme: getTheme(),
-      ),
+      splitScreenMode: true,
+      builder: (context, child) {
+        return MaterialApp.router(
+          routerConfig: AppRouter.router,
+          title: 'To-Do App',
+          debugShowCheckedModeBanner: false,
+          theme: getTheme(),
+        );
+      },
     );
   }
-
-
 }
