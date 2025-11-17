@@ -1,0 +1,46 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:to_do_app/core/helpers/spacing.dart';
+import 'package:to_do_app/core/theming/app_style.dart';
+import 'package:to_do_app/core/utils/app_colors.dart';
+import 'package:to_do_app/core/widgets/app_text_form_field.dart';
+
+class CustomBuildRemind extends StatelessWidget {
+  const CustomBuildRemind({super.key, required this.remindList});
+
+  final List<int> remindList;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text('Remind', style: ClsAppStyles.font16Regular),
+        verticalSpace(5),
+
+        AppTextFormField(
+          hintText: 'Title',
+          readOnly: true,
+          suffixIcon: DropdownButton(
+            items: remindList
+                .map(
+                  (value) =>
+                      DropdownMenuItem(value: value, child: Text('$value')),
+                )
+                .toList(),
+            borderRadius: BorderRadius.circular(10.r),
+
+            icon: Icon(
+              Icons.keyboard_arrow_down,
+              size: 32.r,
+              color: ClsAppColors.white,
+            ),
+            elevation: 4,
+            onChanged: (newValue) {},
+          ),
+          validator: (_) {},
+        ),
+      ],
+    );
+  }
+}

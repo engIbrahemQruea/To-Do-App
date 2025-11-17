@@ -1,12 +1,16 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:to_do_app/core/helpers/spacing.dart';
 import 'package:to_do_app/core/theming/app_style.dart';
 import 'package:to_do_app/core/utils/app_colors.dart';
+import 'package:to_do_app/features/home/domain/entitys/entity_task.dart';
 
 class BuildContainerBody extends StatelessWidget {
-  const BuildContainerBody({super.key});
-
+  const BuildContainerBody({Key? key, required this.taskModelTest})
+    : super(key: key);
+  final EntityTask taskModelTest;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -18,7 +22,7 @@ class BuildContainerBody extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Title', style: ClsAppStyles.font24Bold),
+              Text(taskModelTest.title, style: ClsAppStyles.font24Bold),
               Row(
                 children: [
                   Icon(
@@ -27,12 +31,12 @@ class BuildContainerBody extends StatelessWidget {
                     size: 32.r,
                   ),
                   Text(
-                    '09:33 PM - 09:48 PM',
+                    '${taskModelTest.startTime} - ${taskModelTest.endTime}',
                     style: ClsAppStyles.font16Regular,
                   ),
                 ],
               ),
-              Text('SubTitle', style: ClsAppStyles.font24Bold),
+              Text(taskModelTest.note, style: ClsAppStyles.font24Bold),
             ],
           ),
         ),
@@ -44,7 +48,10 @@ class BuildContainerBody extends StatelessWidget {
         ),
         RotatedBox(
           quarterTurns: 3,
-          child: Text('TODO', style: ClsAppStyles.font16Regular),
+          child: Text(
+            taskModelTest.isCompleted == 1 ? 'isCompleted' : 'TODO',
+            style: ClsAppStyles.font16Regular,
+          ),
         ),
         horizontalSpace(10),
       ],

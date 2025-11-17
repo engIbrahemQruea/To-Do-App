@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:to_do_app/core/theming/app_style.dart';
 import 'package:to_do_app/core/utils/app_colors.dart';
-import 'package:to_do_app/features/add_task/ui/widgets/add_task_screen_body.dart';
+import 'package:to_do_app/features/home/presentation/screens/widgets/add_task_screen/add_task_screen_body.dart';
 
 class AddTaskScreen extends StatelessWidget {
   const AddTaskScreen({super.key});
