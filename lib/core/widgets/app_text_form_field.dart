@@ -1,6 +1,8 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:to_do_app/core/helpers/constants_shared_pref_keys.dart';
+import 'package:to_do_app/core/helpers/shared_pref_helper.dart';
 import 'package:to_do_app/core/theming/app_style.dart';
 import 'package:to_do_app/core/utils/app_colors.dart';
 
@@ -76,15 +78,18 @@ class AppTextFormField extends StatelessWidget {
             width: 1.0,
           ),
         ),
-        hintStyle: hintStyle ?? ClsAppStyles.font16Regular,
+        hintStyle: hintStyle ?? ClsAppStyles.font16Bold,
         hintText: hintText,
         suffixIcon: suffixIcon,
         fillColor:
-            backgroundColor ?? ClsAppColors.primaryColor.withOpacity(.87),
+            backgroundColor ??
+            (SharedPrefHelper.getString(SharedPrefKeys.appThemeMode) == 'light'
+                ? ClsAppColors.white
+                : ClsAppColors.primaryColor),
         filled: true,
       ),
       obscureText: isObscureText ?? false,
-      style: ClsAppStyles.font16Regular,
+      style: ClsAppStyles.font16Bold,
       validator: (value) {
         return validator(value);
       },

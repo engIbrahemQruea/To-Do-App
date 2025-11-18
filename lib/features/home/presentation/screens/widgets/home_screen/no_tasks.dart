@@ -18,7 +18,7 @@ class NoTasks extends StatelessWidget {
           Image.asset(ClsAppAssets.noTasksImage, width: 277.w, height: 300.h),
           Text(
             'What do you want to do today?',
-            style: ClsAppStyles.font20Regular,
+            style: ClsAppStyles.font20RegularNoTask,
           ),
           verticalSpace(16),
           Text('Tap + to add your tasks', style: ClsAppStyles.font16Regular),

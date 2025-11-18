@@ -15,7 +15,7 @@ class CustomBuildRemind extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Remind', style: ClsAppStyles.font16Regular),
+        Text('Remind', style: ClsAppStyles.font16Bold),
         verticalSpace(5),
 
         AppTextFormField(
@@ -33,7 +33,7 @@ class CustomBuildRemind extends StatelessWidget {
             icon: Icon(
               Icons.keyboard_arrow_down,
               size: 32.r,
-              color: ClsAppColors.white,
+              color: checkThemModeInSharedPrefHelper(),
             ),
             elevation: 4,
             onChanged: (newValue) {},

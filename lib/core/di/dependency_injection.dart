@@ -12,28 +12,13 @@ import 'package:to_do_app/features/home/presentation/logic/add_task_cubit/add_ta
 import 'package:to_do_app/features/home/presentation/logic/home_screen_cubits/get_task_by_date/get_all_task_by_date_cubit.dart';
 import 'package:to_do_app/features/home/presentation/logic/home_screen_cubits/home_cubit/home_screen_cubit.dart';
 import 'package:to_do_app/features/home/presentation/logic/home_screen_cubits/task_view_cubit/task_view_cubit.dart';
+import 'package:to_do_app/features/home/presentation/logic/home_screen_cubits/theme_cubit/switch_theme_cubit.dart';
 import 'package:to_do_app/features/home/presentation/logic/home_screen_cubits/update_delete_task/update_delete_task_cubit.dart';
 
 final getIt = GetIt.instance;
 
 Future<void> setupGetIt() async {
-  // // Dio & ApiService
-  // Dio dio = DioFactory.getDio();
-  // getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
-
-  // // login
-  // getIt.registerLazySingleton<LoginRepo>(() => LoginRepo(getIt()));
-  // getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt()));
-
-  // // signup
-  // getIt.registerLazySingleton<SignupRepo>(() => SignupRepo(getIt()));
-  // getIt.registerFactory<SignupCubit>(() => SignupCubit(getIt()));
-
-  // // home
-  // getIt.registerLazySingleton<HomeApiService>(() => HomeApiService(dio));
-  // getIt.registerLazySingleton<HomeRepo>(() => HomeRepo(getIt()));
-  // add task screen
-  // final sqfLiteDatabase = await SqfLiteDatabase.database;
+  
   getIt.registerLazySingleton<AddTaskCubit>(() => AddTaskCubit(getIt()));
   getIt.registerLazySingleton<InsertTaskUseCase>(
     () => InsertTaskUseCase(getIt()),
@@ -65,6 +50,9 @@ Future<void> setupGetIt() async {
   getIt.registerLazySingleton<DeleteTaskUseCase>(
     () => DeleteTaskUseCase(getIt()),
   );
-  // show all task or by date
+  //! show all task or by date
   getIt.registerLazySingleton<TasksViewCubit>(() => TasksViewCubit());
+
+//!change theme app
+  getIt.registerLazySingleton<SwitchThemeCubit>(() => SwitchThemeCubit());
 }

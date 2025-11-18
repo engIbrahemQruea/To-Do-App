@@ -22,7 +22,7 @@ class BuildRowTime extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Start Time', style: ClsAppStyles.font16Regular),
+              Text('Start Time', style: ClsAppStyles.font16Bold),
               verticalSpace(5),
 
               AppTextFormField(
@@ -31,7 +31,7 @@ class BuildRowTime extends StatelessWidget {
                   onPressed: () {
                     cubit.emitShowStartTime(context);
                   },
-                  color: ClsAppColors.white,
+                  color: checkThemModeInSharedPrefHelper(),
                   iconSize: 30.r,
                   icon: Icon(Icons.access_time_rounded),
                 ),
@@ -46,7 +46,7 @@ class BuildRowTime extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('End Time', style: ClsAppStyles.font16Regular),
+              Text('End Time', style: ClsAppStyles.font16Bold),
               verticalSpace(5),
 
               AppTextFormField(
@@ -55,7 +55,7 @@ class BuildRowTime extends StatelessWidget {
                   onPressed: () {
                     cubit.emitShowEndTime(context);
                   },
-                  color: ClsAppColors.white,
+                  color: checkThemModeInSharedPrefHelper(),
                   iconSize: 30.r,
                   icon: Icon(Icons.access_time_rounded),
                 ),

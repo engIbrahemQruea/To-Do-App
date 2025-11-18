@@ -55,12 +55,12 @@ class CustomBuildTask extends StatelessWidget {
               );
             },
             child: Container(
-              //width: 327.w,
               height: 150.h,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16.r),
-                //color: Colors.red,
-                color: context.read<AddTaskCubit>().getColor(entityTask[index].color),
+                color: context.read<AddTaskCubit>().getColor(
+                  entityTask[index].color,
+                ),
               ),
               child: BuildContainerBody(taskModelTest: entityTask[index]),
             ),

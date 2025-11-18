@@ -25,7 +25,7 @@ class CustomRowButton extends StatelessWidget {
                 backgroundColor: ClsAppColors.primaryColor,
                 buttonWidth: 90.w,
                 buttonHeight: 55.h,
-                textStyle: ClsAppStyles.font16Regular,
+                textStyle: ClsAppStyles.font16Bold,
                 onPressed: () {
                   ClsOnboardingModel.controllerPage.previousPage(
                     duration: const Duration(milliseconds: 1000),
@@ -41,7 +41,7 @@ class CustomRowButton extends StatelessWidget {
                 backgroundColor: ClsAppColors.buttonColor,
                 buttonWidth: 90.w,
                 buttonHeight: 55.h,
-                textStyle: ClsAppStyles.font16Regular,
+                textStyle: ClsAppStyles.font16Bold,
                 onPressed: () {
                   ClsOnboardingModel.controllerPage.nextPage(
                     duration: const Duration(milliseconds: 1000),
@@ -54,7 +54,7 @@ class CustomRowButton extends StatelessWidget {
                 backgroundColor: ClsAppColors.buttonColor,
                 buttonWidth: 130.w,
                 buttonHeight: 55.h,
-                textStyle: ClsAppStyles.font16Regular,
+                textStyle: ClsAppStyles.font16Bold,
                 onPressed: () {
                   SharedPrefHelper.setData(SharedPrefKeys.kOnboarding, true);
                   context.goNamed(ClsAppRouteName.homeScreen);

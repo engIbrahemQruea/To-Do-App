@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:to_do_app/core/helpers/spacing.dart';
@@ -16,7 +15,7 @@ class CustomFormField extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Title', style: ClsAppStyles.font16Regular),
+          Text('Title', style: ClsAppStyles.font16Bold),
           verticalSpace(5),
 
           AppTextFormField(
@@ -30,7 +29,7 @@ class CustomFormField extends StatelessWidget {
           ),
           verticalSpace(10),
 
-          Text('Note', style: ClsAppStyles.font16Regular),
+          Text('Note', style: ClsAppStyles.font16Bold),
           verticalSpace(5),
 
           AppTextFormField(

@@ -27,12 +27,13 @@ class BuildContainerBody extends StatelessWidget {
                 children: [
                   Icon(
                     Icons.access_time_rounded,
-                    color: ClsAppColors.white,
+                    color: checkThemModeInSharedPrefHelper(),
                     size: 32.r,
                   ),
+                  horizontalSpace(10),
                   Text(
                     '${taskModelTest.startTime} - ${taskModelTest.endTime}',
-                    style: ClsAppStyles.font16Regular,
+                    style: ClsAppStyles.font16Bold,
                   ),
                 ],
               ),
@@ -49,8 +50,8 @@ class BuildContainerBody extends StatelessWidget {
         RotatedBox(
           quarterTurns: 3,
           child: Text(
-            taskModelTest.isCompleted == 1 ? 'isCompleted' : 'TODO',
-            style: ClsAppStyles.font16Regular,
+            taskModelTest.isCompleted == 1 ? 'Completed' : 'TODO',
+            style: ClsAppStyles.font16Bold,
           ),
         ),
         horizontalSpace(10),

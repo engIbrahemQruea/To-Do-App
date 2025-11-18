@@ -7,6 +7,7 @@ import 'package:to_do_app/core/routing/app_route_name.dart';
 import 'package:to_do_app/features/home/presentation/logic/home_screen_cubits/get_task_by_date/get_all_task_by_date_cubit.dart';
 import 'package:to_do_app/features/home/presentation/logic/home_screen_cubits/home_cubit/home_screen_cubit.dart';
 import 'package:to_do_app/features/home/presentation/logic/home_screen_cubits/task_view_cubit/task_view_cubit.dart';
+import 'package:to_do_app/features/home/presentation/logic/home_screen_cubits/theme_cubit/switch_theme_cubit.dart';
 import 'package:to_do_app/features/home/presentation/logic/home_screen_cubits/update_delete_task/update_delete_task_cubit.dart';
 import 'package:to_do_app/features/home/presentation/screens/add_task_screen.dart';
 import 'package:to_do_app/features/home/presentation/logic/add_task_cubit/add_task_cubit.dart';
@@ -36,6 +37,7 @@ abstract class AppRouter {
             BlocProvider.value(value: getIt<UpdateDeleteTaskCubit>()),
             BlocProvider.value(value: getIt<AddTaskCubit>()),
             BlocProvider.value(value: getIt<TasksViewCubit>()),
+            BlocProvider.value(value: getIt<SwitchThemeCubit>()),
             BlocProvider.value(
               value: getIt<GetAllTaskByDateCubit>()
                 ..emitGetAllTaskByDate(DateTime.now()),

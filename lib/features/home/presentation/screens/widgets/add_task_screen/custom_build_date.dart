@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -10,10 +9,7 @@ import 'package:to_do_app/core/widgets/app_text_form_field.dart';
 import 'package:to_do_app/features/home/presentation/logic/add_task_cubit/add_task_cubit.dart';
 
 class CustomBuildDate extends StatelessWidget {
-  const CustomBuildDate({
-    super.key,
-    required this.cubit,
-  });
+  const CustomBuildDate({super.key, required this.cubit});
 
   final AddTaskCubit cubit;
 
@@ -22,18 +18,17 @@ class CustomBuildDate extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Date', style: ClsAppStyles.font16Regular),
+        Text('Date', style: ClsAppStyles.font16Bold),
         verticalSpace(5),
-        
+
         AppTextFormField(
           hintText: '${formatDate(cubit.currentDate)}',
           suffixIcon: IconButton(
             onPressed: () {
-              context.read<AddTaskCubit>().emitShowDateAndSelectDate(
-                context,
-              );
+              context.read<AddTaskCubit>().emitShowDateAndSelectDate(context);
             },
-            color: ClsAppColors.white,
+            color: checkThemModeInSharedPrefHelper(),
+
             iconSize: 30.r,
             icon: Icon(Icons.calendar_today_outlined),
           ),

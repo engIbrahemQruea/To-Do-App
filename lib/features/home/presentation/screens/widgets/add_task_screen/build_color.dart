@@ -6,8 +6,7 @@ import 'package:to_do_app/core/theming/app_style.dart';
 import 'package:to_do_app/features/home/presentation/logic/add_task_cubit/add_task_cubit.dart';
 
 class BuildColor extends StatelessWidget {
-  const BuildColor({super.key, });
-
+  const BuildColor({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +14,7 @@ class BuildColor extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Color', style: ClsAppStyles.font16Regular),
+        Text('Color', style: ClsAppStyles.font16Bold),
         verticalSpace(5),
         Wrap(
           children: List<Widget>.generate(
