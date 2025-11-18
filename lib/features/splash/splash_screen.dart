@@ -21,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 5), () {
+    Future.delayed(const Duration(seconds: 4), () {
       context.go(isVisible?ClsAppRouteName.homeScreen:ClsAppRouteName.onBoardingScreen);
     });
   }
@@ -35,10 +35,10 @@ class _SplashScreenState extends State<SplashScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(ClsAppAssets.logoImage, width: 95.w, height: 80.h),
-              Text('UpTodo', style: ClsAppStyles.font40Bold),
+              Text('ToDo', style: ClsAppStyles.font40Bold),
               verticalSpace(20),
               Text(
-                'Prog/Ibrahem Qrueai\n773635382',
+                'Prog/ Ibrahem Qrueai\n773635382',
                 textAlign: TextAlign.center,
                 style: ClsAppStyles.font20SemiBold,
               ),
