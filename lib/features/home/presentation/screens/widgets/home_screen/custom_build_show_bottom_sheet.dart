@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:to_do_app/core/helpers/function_helper.dart';
 import 'package:to_do_app/core/helpers/spacing.dart';
+import 'package:to_do_app/core/routing/app_route_name.dart';
 
 import 'package:to_do_app/core/theming/app_style.dart';
 import 'package:to_do_app/core/utils/app_colors.dart';
@@ -38,7 +40,7 @@ class CustomShowModalBottomSheet extends StatelessWidget {
                 ? Container()
                 : AppTextButton(
                     buttonText: 'Task Completed ',
-                    textStyle: ClsAppStyles.font16Regular,
+                    textStyle: ClsAppStyles.font16Bold,
                     onPressed: () {
                       customContext
                           .read<UpdateDeleteTaskCubit>()
@@ -51,7 +53,10 @@ class CustomShowModalBottomSheet extends StatelessWidget {
                                 .read<GetAllTaskByDateCubit>()
                                 .currentDate,
                           );
-
+                      showToast(
+                        message: "Completed task successfully",
+                        state: ToastStates.success,
+                      );
                       customContext.pop();
                     },
                   ),
@@ -59,28 +64,23 @@ class CustomShowModalBottomSheet extends StatelessWidget {
 
             AppTextButton(
               buttonText: 'Delete Completed ',
-              textStyle: ClsAppStyles.font16Regular,
+              textStyle: ClsAppStyles.font16Bold,
               backgroundColor: Colors.red,
               onPressed: () {
                 //show dialog to confirm delete task
-                
-                customContext.read<UpdateDeleteTaskCubit>().emitDeleteTask(
-                  index,
+                showDialog(
+                  context: customContext,
+                  builder: (BuildContext context) {
+                    return confirmDeleteTask(customContext, context);
+                  },
                 );
-                customContext.read<HomeScreenCubit>().emitGetAllTask();
-                customContext
-                    .read<GetAllTaskByDateCubit>()
-                    .emitGetAllTaskByDate(
-                      customContext.read<GetAllTaskByDateCubit>().currentDate,
-                    );
-                customContext.pop();
               },
             ),
             verticalSpace(20),
 
             AppTextButton(
               buttonText: 'CANCEL',
-              textStyle: ClsAppStyles.font16Regular,
+              textStyle: ClsAppStyles.font16Bold,
               onPressed: () {
                 customContext.pop();
               },
@@ -88,6 +88,47 @@ class CustomShowModalBottomSheet extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  AlertDialog confirmDeleteTask(
+    BuildContext customContext,
+    BuildContext context,
+  ) {
+    return AlertDialog(
+      icon: Icon(Icons.auto_delete_outlined, size: 40.r),
+      iconColor: Colors.red,
+      title: Text(
+        'Are you sure you want to delete this task?',
+        style: ClsAppStyles.font16Bold,
+      ),
+      actions: [
+        TextButton(
+          onPressed: () {
+            customContext.read<UpdateDeleteTaskCubit>().emitDeleteTask(index);
+            customContext.read<HomeScreenCubit>().emitGetAllTask();
+            customContext.read<GetAllTaskByDateCubit>().emitGetAllTaskByDate(
+              customContext.read<GetAllTaskByDateCubit>().currentDate,
+            );
+            showToast(
+              message: "Delete task successfully",
+              state: ToastStates.success,
+            );
+
+            context.pop();
+            customContext.pop();
+          },
+
+          child: Text('Delete', style: ClsAppStyles.font16Bold),
+        ),
+        horizontalSpace(30),
+        TextButton(
+          onPressed: () {
+            context.pop();
+          },
+          child: Text('Cancel', style: ClsAppStyles.font16Bold),
+        ),
+      ],
     );
   }
 }
