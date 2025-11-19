@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:to_do_app/core/theming/app_style.dart';
 import 'package:to_do_app/features/home/presentation/screens/widgets/add_task_screen/add_task_screen_body.dart';
+import 'package:to_do_app/generated/l10n.dart';
 
 class AddTaskScreen extends StatelessWidget {
   const AddTaskScreen({super.key});
@@ -12,7 +13,10 @@ class AddTaskScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text('Add Task', style: ClsAppStyles.font32Bold),
+        title: Text(
+          S.of(context).app_bar_title_add_task_screen,
+          style: ClsAppStyles.font32Bold,
+        ),
         leading: IconButton(
           onPressed: () {
             context.pop();

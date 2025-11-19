@@ -8,6 +8,7 @@ import 'package:to_do_app/features/home/presentation/logic/add_task_cubit/add_ta
 import 'package:to_do_app/features/home/presentation/logic/add_task_cubit/add_task_state.dart';
 import 'package:to_do_app/features/home/presentation/logic/home_screen_cubits/get_task_by_date/get_all_task_by_date_cubit.dart';
 import 'package:to_do_app/features/home/presentation/logic/home_screen_cubits/home_cubit/home_screen_cubit.dart';
+import 'package:to_do_app/generated/l10n.dart';
 
 class AddTaskBlocListener extends StatelessWidget {
   const AddTaskBlocListener({super.key});
@@ -21,12 +22,15 @@ class AddTaskBlocListener extends StatelessWidget {
               Center(child: CircularProgressIndicator()),
           insertTaskToDatabaseSuccess: () {
             //   context.read<AddTaskCubit>().homeCubit.emitGetAllTask();
-            showToast(message: "add task successfully", state: ToastStates.success);
+            showToast(
+              message: S.of(context).show_toast_add_task,
+              state: ToastStates.success,
+            );
           },
         );
       },
       child: AppTextButton(
-        buttonText: 'Create task',
+        buttonText: S.of(context).btn_create_task,
         textStyle: ClsAppStyles.font16Bold,
         buttonHeight: 60,
         onPressed: () {

@@ -10,6 +10,7 @@ import 'package:to_do_app/core/theming/app_style.dart';
 import 'package:to_do_app/core/utils/app_colors.dart';
 import 'package:to_do_app/core/widgets/app_text_button.dart';
 import 'package:to_do_app/features/onboarding/data/models/cls_onboarding_model.dart';
+import 'package:to_do_app/generated/l10n.dart';
 
 class CustomRowButton extends StatelessWidget {
   const CustomRowButton({Key? key, required this.indexButton})
@@ -21,7 +22,7 @@ class CustomRowButton extends StatelessWidget {
       children: [
         indexButton != 0
             ? AppTextButton(
-                buttonText: 'BACK',
+                buttonText: S.of(context).btn_back_onboarding_screen,
                 backgroundColor: ClsAppColors.primaryColor,
                 buttonWidth: 90.w,
                 buttonHeight: 55.h,
@@ -37,7 +38,7 @@ class CustomRowButton extends StatelessWidget {
         const Spacer(),
         indexButton != 2
             ? AppTextButton(
-                buttonText: 'NEXT',
+                buttonText: S.of(context).btn_next_onboarding_screen,
                 backgroundColor: ClsAppColors.buttonColor,
                 buttonWidth: 90.w,
                 buttonHeight: 55.h,
@@ -50,7 +51,7 @@ class CustomRowButton extends StatelessWidget {
                 },
               )
             : AppTextButton(
-                buttonText: 'Start',
+                buttonText: S.of(context).btn_get_started_onboarding_screen,
                 backgroundColor: ClsAppColors.buttonColor,
                 buttonWidth: 130.w,
                 buttonHeight: 55.h,

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:to_do_app/core/helpers/spacing.dart';
 import 'package:to_do_app/core/theming/app_style.dart';
-import 'package:to_do_app/core/utils/app_colors.dart';
 import 'package:to_do_app/core/widgets/app_text_form_field.dart';
+import 'package:to_do_app/generated/l10n.dart';
 
 class CustomBuildRepeat extends StatelessWidget {
   const CustomBuildRepeat({super.key, required this.repeatList});
@@ -15,7 +15,10 @@ class CustomBuildRepeat extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Repeat', style: ClsAppStyles.font16Bold),
+        Text(
+          S.of(context).from_field_text_repeat,
+          style: ClsAppStyles.font16Bold,
+        ),
         verticalSpace(5),
         AppTextFormField(
           hintText: 'Title',

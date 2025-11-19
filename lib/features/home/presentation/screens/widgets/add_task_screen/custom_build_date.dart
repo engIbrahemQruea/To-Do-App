@@ -4,9 +4,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:to_do_app/core/helpers/function_helper.dart';
 import 'package:to_do_app/core/helpers/spacing.dart';
 import 'package:to_do_app/core/theming/app_style.dart';
-import 'package:to_do_app/core/utils/app_colors.dart';
 import 'package:to_do_app/core/widgets/app_text_form_field.dart';
 import 'package:to_do_app/features/home/presentation/logic/add_task_cubit/add_task_cubit.dart';
+import 'package:to_do_app/generated/l10n.dart';
 
 class CustomBuildDate extends StatelessWidget {
   const CustomBuildDate({super.key, required this.cubit});
@@ -18,7 +18,7 @@ class CustomBuildDate extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Date', style: ClsAppStyles.font16Bold),
+        Text(S.of(context).from_field_text_date, style: ClsAppStyles.font16Bold),
         verticalSpace(5),
 
         AppTextFormField(

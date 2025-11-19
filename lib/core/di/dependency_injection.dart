@@ -11,6 +11,7 @@ import 'package:to_do_app/features/home/domain/usecases/up_date_task.dart';
 import 'package:to_do_app/features/home/presentation/logic/add_task_cubit/add_task_cubit.dart';
 import 'package:to_do_app/features/home/presentation/logic/home_screen_cubits/get_task_by_date/get_all_task_by_date_cubit.dart';
 import 'package:to_do_app/features/home/presentation/logic/home_screen_cubits/home_cubit/home_screen_cubit.dart';
+import 'package:to_do_app/features/home/presentation/logic/home_screen_cubits/language_cubir/switch_language_cubit.dart';
 import 'package:to_do_app/features/home/presentation/logic/home_screen_cubits/task_view_cubit/task_view_cubit.dart';
 import 'package:to_do_app/features/home/presentation/logic/home_screen_cubits/theme_cubit/switch_theme_cubit.dart';
 import 'package:to_do_app/features/home/presentation/logic/home_screen_cubits/update_delete_task/update_delete_task_cubit.dart';
@@ -18,7 +19,6 @@ import 'package:to_do_app/features/home/presentation/logic/home_screen_cubits/up
 final getIt = GetIt.instance;
 
 Future<void> setupGetIt() async {
-  
   getIt.registerLazySingleton<AddTaskCubit>(() => AddTaskCubit(getIt()));
   getIt.registerLazySingleton<InsertTaskUseCase>(
     () => InsertTaskUseCase(getIt()),
@@ -53,6 +53,7 @@ Future<void> setupGetIt() async {
   //! show all task or by date
   getIt.registerLazySingleton<TasksViewCubit>(() => TasksViewCubit());
 
-//!change theme app
+  //!change theme app
   getIt.registerLazySingleton<SwitchThemeCubit>(() => SwitchThemeCubit());
+  getIt.registerLazySingleton<SwitchLanguageCubit>(() => SwitchLanguageCubit());
 }

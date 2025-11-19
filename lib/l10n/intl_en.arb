@@ -1,0 +1,54 @@
+{
+  "logo_name_splash":"ToDo",
+  "name_prog_splash":"Prog/ Ibrahem Qrueai\n773635382",
+  "title_onboarding_one_screen":"Manage your tasks",
+  "subtitle_onboarding_one_screen":"You can easily manage all of your daily tasks in DoMe for free",
+  "title_onboarding_tow_screen":"Create daily routine",
+  "subtitle_onboarding_tow_screen":"In Uptodo  you can create your\n personalized routine to stay productive",
+  "title_onboarding_three_screen":"Organaize your tasks",
+  "subtitle_onboarding_three_screen":"You can organize your daily tasks by\n adding your tasks into separate categories",
+  "btn_next_onboarding_screen":"Next",
+  "btn_back_onboarding_screen":"back",
+  "btn_get_started_onboarding_screen":"Get Started",
+  "btn_add_task_home_screen":"Add Task",
+  "to_day_home_screen":"Today",
+  "btn_all_tasks_home_screen":"All Tasks",
+  "rotateBox_completed_home":"Completed",
+  "rotateBox_todo_home":"TODO",
+  "btn_sheet_completed_home_screen":"Task Completed",
+  "btn_sheet_delete_home_screen":"Delete Completed", 
+  "btn_sheet_cancel_home_screen":"Cancel",
+  "message_alert_confirm_delete_task":"Are you sure you want to delete this task?",
+  "btn_alert_cancel_task":"Cancel",
+  "btn_alert_delete_task":"Delete", 
+  "show_toast_complete_task":"Complete task successfully", 
+  "show_toast_delete_task":"Delete task successfully", 
+  "show_toast_add_task":"Add task successfully", 
+  "no_tasks_text_one":"What do you want to do today?",
+  "no_tasks_text_tow":"Tap + to add your tasks",
+  "app_bar_title_add_task_screen":"Add Task",
+  "repeatNone": "None",
+  "repeatDaily": "Daily",
+  "repeatWeekly": "Weekly",
+  "repeatMonthly": "Monthly",
+  "from_field_text_title":"Title Task",
+  "from_field_hint_text":"Enter Title Task here",
+  "from_field_validate_text":"Please Enter title Task here",
+  "from_field_text_note":"Note",
+  "from_field_hint_note":"Enter Note  here",
+  "from_field_validate_note":"Please Enter Note here",
+  "from_field_text_date":"Date",
+  "from_field_text_start_time":"Start Time",
+  "from_field_text_end_time":"End Time",
+  "from_field_text_remind":"Remind",
+  "from_field_text_repeat":"Repeat",
+  "color_text_title":"Color",
+  "btn_create_task":"Create Task"
+
+
+  
+
+
+
+
+}

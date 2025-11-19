@@ -6,7 +6,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:to_do_app/core/helpers/function_helper.dart';
 import 'package:to_do_app/core/helpers/spacing.dart';
-import 'package:to_do_app/core/routing/app_route_name.dart';
 
 import 'package:to_do_app/core/theming/app_style.dart';
 import 'package:to_do_app/core/utils/app_colors.dart';
@@ -14,6 +13,7 @@ import 'package:to_do_app/core/widgets/app_text_button.dart';
 import 'package:to_do_app/features/home/presentation/logic/home_screen_cubits/get_task_by_date/get_all_task_by_date_cubit.dart';
 import 'package:to_do_app/features/home/presentation/logic/home_screen_cubits/home_cubit/home_screen_cubit.dart';
 import 'package:to_do_app/features/home/presentation/logic/home_screen_cubits/update_delete_task/update_delete_task_cubit.dart';
+import 'package:to_do_app/generated/l10n.dart';
 
 class CustomShowModalBottomSheet extends StatelessWidget {
   const CustomShowModalBottomSheet({
@@ -39,7 +39,9 @@ class CustomShowModalBottomSheet extends StatelessWidget {
             isCompleted == 1
                 ? Container()
                 : AppTextButton(
-                    buttonText: 'Task Completed ',
+                    buttonText: S
+                        .of(customContext)
+                        .btn_sheet_completed_home_screen,
                     textStyle: ClsAppStyles.font16Bold,
                     onPressed: () {
                       customContext
@@ -54,7 +56,7 @@ class CustomShowModalBottomSheet extends StatelessWidget {
                                 .currentDate,
                           );
                       showToast(
-                        message: "Completed task successfully",
+                        message: S.of(customContext).show_toast_complete_task,
                         state: ToastStates.success,
                       );
                       customContext.pop();
@@ -63,7 +65,7 @@ class CustomShowModalBottomSheet extends StatelessWidget {
             verticalSpace(20),
 
             AppTextButton(
-              buttonText: 'Delete Completed ',
+              buttonText: S.of(customContext).btn_sheet_delete_home_screen,
               textStyle: ClsAppStyles.font16Bold,
               backgroundColor: Colors.red,
               onPressed: () {
@@ -79,7 +81,7 @@ class CustomShowModalBottomSheet extends StatelessWidget {
             verticalSpace(20),
 
             AppTextButton(
-              buttonText: 'CANCEL',
+              buttonText: S.of(customContext).btn_sheet_cancel_home_screen,
               textStyle: ClsAppStyles.font16Bold,
               onPressed: () {
                 customContext.pop();
@@ -99,7 +101,7 @@ class CustomShowModalBottomSheet extends StatelessWidget {
       icon: Icon(Icons.auto_delete_outlined, size: 40.r),
       iconColor: Colors.red,
       title: Text(
-        'Are you sure you want to delete this task?',
+        S.of(customContext).message_alert_confirm_delete_task,
         style: ClsAppStyles.font16Bold,
       ),
       actions: [
@@ -111,7 +113,7 @@ class CustomShowModalBottomSheet extends StatelessWidget {
               customContext.read<GetAllTaskByDateCubit>().currentDate,
             );
             showToast(
-              message: "Delete task successfully",
+              message: S.of(customContext).show_toast_delete_task,
               state: ToastStates.success,
             );
 
@@ -119,14 +121,20 @@ class CustomShowModalBottomSheet extends StatelessWidget {
             customContext.pop();
           },
 
-          child: Text('Delete', style: ClsAppStyles.font16Bold),
+          child: Text(
+            S.of(customContext).btn_alert_delete_task,
+            style: ClsAppStyles.font16Bold,
+          ),
         ),
         horizontalSpace(30),
         TextButton(
           onPressed: () {
             context.pop();
           },
-          child: Text('Cancel', style: ClsAppStyles.font16Bold),
+          child: Text(
+            S.of(customContext).btn_alert_cancel_task,
+            style: ClsAppStyles.font16Bold,
+          ),
         ),
       ],
     );

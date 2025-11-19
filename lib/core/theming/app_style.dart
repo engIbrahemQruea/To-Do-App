@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:to_do_app/core/helpers/constants_shared_pref_keys.dart';
 import 'package:to_do_app/core/helpers/shared_pref_helper.dart';
 import 'package:to_do_app/core/theming/font_weight_helper.dart';
@@ -49,7 +48,7 @@ class ClsAppStyles {
   );
 
   static TextStyle get font24Bold => TextStyle(
-    fontSize: 24.sp,
+    fontSize: 22.sp,
     fontWeight: FontWeightHelper.bold,
     color: checkThemModeInSharedPrefHelper(),
   );

@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:to_do_app/core/helpers/spacing.dart';
 import 'package:to_do_app/core/theming/app_style.dart';
 import 'package:to_do_app/features/home/presentation/logic/add_task_cubit/add_task_cubit.dart';
+import 'package:to_do_app/generated/l10n.dart';
 
 class BuildColor extends StatelessWidget {
   const BuildColor({super.key});
@@ -14,7 +15,7 @@ class BuildColor extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Color', style: ClsAppStyles.font16Bold),
+        Text(S.of(context).color_text_title, style: ClsAppStyles.font16Bold),
         verticalSpace(5),
         Wrap(
           children: List<Widget>.generate(

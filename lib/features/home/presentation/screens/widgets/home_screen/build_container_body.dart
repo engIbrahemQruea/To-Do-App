@@ -6,6 +6,7 @@ import 'package:to_do_app/core/helpers/spacing.dart';
 import 'package:to_do_app/core/theming/app_style.dart';
 import 'package:to_do_app/core/utils/app_colors.dart';
 import 'package:to_do_app/features/home/domain/entitys/entity_task.dart';
+import 'package:to_do_app/generated/l10n.dart';
 
 class BuildContainerBody extends StatelessWidget {
   const BuildContainerBody({Key? key, required this.taskModelTest})
@@ -13,6 +14,7 @@ class BuildContainerBody extends StatelessWidget {
   final EntityTask taskModelTest;
   @override
   Widget build(BuildContext context) {
+
     return Row(
       //  mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
@@ -50,7 +52,9 @@ class BuildContainerBody extends StatelessWidget {
         RotatedBox(
           quarterTurns: 3,
           child: Text(
-            taskModelTest.isCompleted == 1 ? 'Completed' : 'TODO',
+            taskModelTest.isCompleted == 1
+                ? S.of(context).rotateBox_completed_home
+                : S.of(context).rotateBox_todo_home,
             style: ClsAppStyles.font16Bold,
           ),
         ),

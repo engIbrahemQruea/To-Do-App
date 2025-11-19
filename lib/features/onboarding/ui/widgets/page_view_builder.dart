@@ -19,7 +19,7 @@ class PageViewBuilder extends StatelessWidget {
           return Column(
             children: [
               Image.asset(
-                ClsOnboardingModel.onBoardingList[index].image,
+                ClsOnboardingModel.getOnBoardingList(context)[index].image,
                 height: 300.h,
                 width: 300.w,
               ),
@@ -29,12 +29,12 @@ class PageViewBuilder extends StatelessWidget {
               ),
               verticalSpace(42),
               Text(
-                ClsOnboardingModel.onBoardingList[index].title,
+                ClsOnboardingModel.getOnBoardingList(context)[index].title,
                 style: ClsAppStyles.font32Bold,
               ),
               verticalSpace(35),
               Text(
-                ClsOnboardingModel.onBoardingList[index].subTitle,
+                ClsOnboardingModel.getOnBoardingList(context)[index].subTitle,
                 style: ClsAppStyles.font16WithOpcityRegular,
                 textAlign: TextAlign.center,
               ),

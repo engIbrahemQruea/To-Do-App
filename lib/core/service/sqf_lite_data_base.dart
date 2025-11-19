@@ -70,14 +70,32 @@ WHERE id = ?
     // return await database!.query(_tableName, orderBy: 'id DESC');
   }
 
-  //get all task by date
-  Future<List<Map<String, dynamic>>> getAllTaskByDate(String date) async {
 
-    return await database!.query(
-      _tableName,
+String _convertArabicToEnglish(String input) {
+  const Map<String, String> arabicToEnglish = {
+    '٠': '0', '١': '1', '٢': '2', '٣': '3', '٤': '4',
+    '٥': '5', '٦': '6', '٧': '7', '٨': '8', '٩': '9',
+  };
+
+  String result = input;
+  
+  arabicToEnglish.forEach((arabic, english) {
+    result = result.replaceAll(arabic, english);
+  });
+  
+  return result;
+}
+
+Future<List<Map<String, dynamic>>> getAllTaskByDate(String date) async {
+  final String cleanedDate = _convertArabicToEnglish(date);
+
+  return await database!.query(
+    _tableName,
     where: 'date LIKE ?',
-    whereArgs: ["$date%"], 
+    whereArgs: ["$cleanedDate%"], 
     orderBy: 'id DESC',
   );
-  }
+}
+
+
 }

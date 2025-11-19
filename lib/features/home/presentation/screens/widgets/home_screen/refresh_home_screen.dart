@@ -7,6 +7,7 @@ import 'package:to_do_app/features/home/presentation/screens/widgets/home_screen
 import 'package:to_do_app/features/home/presentation/screens/widgets/home_screen/build_task_or_no_task.dart';
 import 'package:to_do_app/features/home/presentation/screens/widgets/home_screen/custom_build_add_date.dart';
 import 'package:to_do_app/features/home/presentation/logic/home_screen_cubits/home_cubit/home_screen_cubit.dart';
+import 'package:to_do_app/generated/l10n.dart';
 
 class RefreshHomeScreen extends StatelessWidget {
   const RefreshHomeScreen({super.key});
@@ -25,9 +26,12 @@ class RefreshHomeScreen extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  Text('Today', style: ClsAppStyles.font24Bold),
+                  Text(
+                    S.of(context).to_day_home_screen,
+                    style: ClsAppStyles.font24Bold,
+                  ),
                   Spacer(),
-                  TextButton(
+                  OutlinedButton(
                     onPressed: () {
                       if (showAllTasks == false) {
                         context.read<HomeScreenCubit>().emitGetAllTask();
@@ -35,7 +39,7 @@ class RefreshHomeScreen extends StatelessWidget {
                       context.read<TasksViewCubit>().toggle();
                     },
                     child: Text(
-                      'All Tasks',
+                      S.of(context).btn_all_tasks_home_screen,
                       style: ClsAppStyles.font20SemiBold,
                     ),
                   ),

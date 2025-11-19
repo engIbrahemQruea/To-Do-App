@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
-import 'package:to_do_app/core/utils/app_colors.dart';
 
 String formatDate(DateTime? dateTime) {
   if (dateTime == null) {
