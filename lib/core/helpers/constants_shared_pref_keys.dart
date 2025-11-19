@@ -1,5 +1,6 @@
 class SharedPrefKeys {
   static const String kOnboarding = 'onboarding';
   static const String kIsLightMode = 'isLightMode';
+  static const String appThemeMode = 'app_theme_mode';
+  static const String kAppLanguage = 'app_language';
 }
-

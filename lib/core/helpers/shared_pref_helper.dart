@@ -15,10 +15,14 @@ class SharedPrefHelper {
   static Future<void> setData(String key, dynamic value) async {
     debugPrint("SharedPrefHelper: setData key=$key, value=$value");
 
-    if (value is String) await _prefs.setString(key, value);
-    else if (value is int) await _prefs.setInt(key, value);
-    else if (value is bool) await _prefs.setBool(key, value);
-    else if (value is double) await _prefs.setDouble(key, value);
+    if (value is String)
+      await _prefs.setString(key, value);
+    else if (value is int)
+      await _prefs.setInt(key, value);
+    else if (value is bool)
+      await _prefs.setBool(key, value);
+    else if (value is double)
+      await _prefs.setDouble(key, value);
     else {
       debugPrint("SharedPrefHelper: ❌ Unsupported value type for key=$key");
     }

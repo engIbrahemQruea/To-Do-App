@@ -1,0 +1,49 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+import 'package:to_do_app/core/helpers/function_helper.dart';
+import 'package:to_do_app/core/theming/app_style.dart';
+import 'package:to_do_app/core/widgets/app_text_button.dart';
+import 'package:to_do_app/features/home/presentation/logic/add_task_cubit/add_task_cubit.dart';
+import 'package:to_do_app/features/home/presentation/logic/add_task_cubit/add_task_state.dart';
+import 'package:to_do_app/features/home/presentation/logic/home_screen_cubits/get_task_by_date/get_all_task_by_date_cubit.dart';
+import 'package:to_do_app/features/home/presentation/logic/home_screen_cubits/home_cubit/home_screen_cubit.dart';
+import 'package:to_do_app/generated/l10n.dart';
+
+class AddTaskBlocListener extends StatelessWidget {
+  const AddTaskBlocListener({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocListener<AddTaskCubit, AddTaskState>(
+      listener: (context, state) {
+        state.whenOrNull(
+          insertTaskToDatabaseLoading: () =>
+              Center(child: CircularProgressIndicator()),
+          insertTaskToDatabaseSuccess: () {
+            //   context.read<AddTaskCubit>().homeCubit.emitGetAllTask();
+            showToast(
+              message: S.of(context).show_toast_add_task,
+              state: ToastStates.success,
+            );
+          },
+        );
+      },
+      child: AppTextButton(
+        buttonText: S.of(context).btn_create_task,
+        textStyle: ClsAppStyles.font16Bold,
+        buttonHeight: 60,
+        onPressed: () {
+          if (context.read<AddTaskCubit>().formKey.currentState!.validate()) {
+            context.read<AddTaskCubit>().emitAddTask();
+            context.read<HomeScreenCubit>().emitGetAllTask();
+            context.read<GetAllTaskByDateCubit>().emitGetAllTaskByDate(
+              context.read<GetAllTaskByDateCubit>().currentDate,
+            );
+            context.pop();
+          }
+        },
+      ),
+    );
+  }
+}

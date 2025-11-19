@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
 
 String formatDate(DateTime? dateTime) {
@@ -15,5 +16,31 @@ String formatTimeOfDay(TimeOfDay? timeOfDay) {
   }
   final hour = timeOfDay.hourOfPeriod.toString().padLeft(2, '0');
   final minute = timeOfDay.minute.toString().padLeft(2, '0');
-  return '$hour:$minute';
+  final period = timeOfDay.period == DayPeriod.am ? 'AM' : 'PM';
+  return '$hour:$minute $period';
+}
+
+void showToast({required String message, required ToastStates state}) {
+  Fluttertoast.showToast(
+    msg: message,
+    toastLength: Toast.LENGTH_LONG,
+    gravity: ToastGravity.CENTER,
+    timeInSecForIosWeb: 1,
+    backgroundColor: getState(state),
+    textColor: Colors.white,
+    fontSize: 16.0,
+  );
+}
+
+enum ToastStates { error, success, warining }
+
+Color getState(ToastStates state) {
+  switch (state) {
+    case ToastStates.error:
+      return Colors.red;
+    case ToastStates.success:
+      return Colors.green;
+    case ToastStates.warining:
+      return Colors.yellow;
+  }
 }
